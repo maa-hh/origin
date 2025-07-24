@@ -17,8 +17,14 @@
 package com.example.demo.Control;
 
 import com.example.demo.Domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import com.example.demo.Sever.*;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
@@ -26,6 +32,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/hello")
 public class PathVariableController {
+    @Autowired
+    sever sever;
    /*@GetMapping
     public String hello1(@RequestParam("username") String name,int age){
        return name+" "+age;
@@ -35,13 +43,24 @@ public class PathVariableController {
         System.out.println(u);
         return u;
     }*/
-        @GetMapping
-    public String hello3(String [] s) {
+       /* @GetMapping
+    public Result hello3(String [] s) {
         int n=s.length;
         StringBuilder ans=new StringBuilder();
         int i;
         for(i=0;i<n;i++)
             ans.append((s[i]));
-        return ans.toString();
+        return new Result(1,"OK","hello");
+    }*/
+   /* @GetMapping("/Time")
+    public String time(@DateTimeFormat(pattern="yyyy-mm-dd hh:mm:ss") LocalDateTime time) {
+        System.out.println(time);
+        return time.toString();
+    }*/
+    @GetMapping("/{id}")
+    public Result id(@PathVariable int id) {
+        List<User>ans=sever.select(id);
+        System.out.println(id);
+        return new Result(1,"find",ans);
     }
 }
