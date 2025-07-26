@@ -16,6 +16,7 @@
 
 package com.example.demo.Control;
 
+import com.example.demo.Domain.Emp;
 import com.example.demo.Domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -59,7 +60,7 @@ public class PathVariableController {
     }*/
     @GetMapping("/{id}")
     public Result id(@PathVariable int id) {
-        List<User>ans=sever.select(id);
+        List<Emp>ans=sever.select(id);
         System.out.println(id);
         return new Result(1,"find",ans);
     }
