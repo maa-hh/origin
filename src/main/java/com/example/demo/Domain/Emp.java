@@ -15,11 +15,11 @@ public class Emp {
     private  String username;
     private  String password;
     private  String name;
-    private  String gender;
+    private  short gender;
     private  String image;
     private  String job;
     private LocalDate entrydate;
-    private Integer deptid;
+    private Integer deptId;
     private LocalDateTime createTime;
     private  LocalDateTime updateTime;
 }

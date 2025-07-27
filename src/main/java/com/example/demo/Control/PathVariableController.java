@@ -18,6 +18,7 @@ package com.example.demo.Control;
 
 import com.example.demo.Domain.Emp;
 import com.example.demo.Domain.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -30,38 +31,30 @@ import java.util.List;
 /**
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
  */
+@Slf4j
 @RestController
-@RequestMapping("/hello")
+@RequestMapping
 public class PathVariableController {
     @Autowired
     sever sever;
-   /*@GetMapping
-    public String hello1(@RequestParam("username") String name,int age){
-       return name+" "+age;
-   }*/
-    /*@PostMapping
-    public User hello2(@RequestBody User u) {
-        System.out.println(u);
-        return u;
-    }*/
-       /* @GetMapping
-    public Result hello3(String [] s) {
-        int n=s.length;
-        StringBuilder ans=new StringBuilder();
-        int i;
-        for(i=0;i<n;i++)
-            ans.append((s[i]));
-        return new Result(1,"OK","hello");
-    }*/
-   /* @GetMapping("/Time")
-    public String time(@DateTimeFormat(pattern="yyyy-mm-dd hh:mm:ss") LocalDateTime time) {
-        System.out.println(time);
-        return time.toString();
-    }*/
-    @GetMapping("/{id}")
-    public Result id(@PathVariable int id) {
-        List<Emp>ans=sever.select(id);
-        System.out.println(id);
-        return new Result(1,"find",ans);
+    @Autowired
+    deptSever deptSever;
+   @GetMapping("/Emps")
+    public Result list(){
+       List<Emp>s=sever.getAll();
+       log.info("getEmps");
+       return new Result(1,"OK",s);
+   }
+   @DeleteMapping("/Emp/{id}")
+   public Result deleteid(@PathVariable int id){
+       int n=sever.deleteId(id);
+       return  new Result(1,"delete"+id,"delete"+n);
+   }
+    @PostMapping("/Emp")
+    public Result hello2(@RequestBody Emp u) {
+       u.setCreateTime(LocalDateTime.now());
+       u.setUpdateTime(LocalDateTime.now());
+        sever.posts(u);
+        return  new Result(1,"post",u);
     }
 }
