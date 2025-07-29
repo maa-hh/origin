@@ -55,6 +55,11 @@ public class PathVariableController {
        log.info("检查第 " + page + " 页，本页 " + size + " 行数据");
        return new Result(1, "selectLimit", s);
    }
+   @GetMapping("/Emp")
+   public Result selectListId(@RequestBody List<Emp> l){
+       List<Emp> m=sever.selectListId(l);
+       return new Result(1,"OK",m);
+   }
    @DeleteMapping("/Emp/{id}")
    public Result deleteid(@PathVariable int id){
        int n=sever.deleteId(id);

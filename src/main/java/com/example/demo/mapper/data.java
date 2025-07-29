@@ -36,4 +36,6 @@ public interface data {
     public void posts(Emp u);
     @Select("select  * from Emp limit #{page},#{size}")
     List<Emp> getAllLimit(@Param("page") int page, @Param("size") int size);
+
+    List<Emp> selectListId(@Param("l") List<Emp> l);
 }

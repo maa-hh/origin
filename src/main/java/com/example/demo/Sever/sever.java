@@ -39,4 +39,8 @@ public class sever {
         List<Emp> l=data.getAllLimit(page,size);
         return new PageInfo<>(l);
     }
+
+    public List<Emp> selectListId(List<Emp> l) {
+        return data.selectListId(l);
+    }
 }
