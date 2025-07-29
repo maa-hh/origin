@@ -34,4 +34,6 @@ public interface data {
     List<Emp> getAll();
     @Insert("insert into Emp values (#{id},#{username},#{password},#{name},#{gender},#{image},#{job},#{entrydate},#{deptId},#{createTime},#{updateTime})")
     public void posts(Emp u);
+    @Select("select  * from Emp limit #{page},#{size}")
+    List<Emp> getAllLimit(@Param("page") int page, @Param("size") int size);
 }

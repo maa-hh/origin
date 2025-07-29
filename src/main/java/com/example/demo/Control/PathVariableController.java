@@ -18,13 +18,17 @@ package com.example.demo.Control;
 
 import com.example.demo.Domain.Emp;
 import com.example.demo.Domain.User;
+import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.example.demo.Sever.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -45,16 +49,23 @@ public class PathVariableController {
        log.info("getEmps");
        return new Result(1,"OK",s);
    }
+   @GetMapping("/Emp/{page}/{size}")
+   public  Result listLimit(@PathVariable int page,@PathVariable int size){
+       PageInfo<Emp> s = sever.getAllLimit(page, size);
+       log.info("检查第 " + page + " 页，本页 " + size + " 行数据");
+       return new Result(1, "selectLimit", s);
+   }
    @DeleteMapping("/Emp/{id}")
    public Result deleteid(@PathVariable int id){
        int n=sever.deleteId(id);
        return  new Result(1,"delete"+id,"delete"+n);
    }
     @PostMapping("/Emp")
-    public Result hello2(@RequestBody Emp u) {
+    public Result upload( MultipartFile f) throws IOException {
+    /*
        u.setCreateTime(LocalDateTime.now());
-       u.setUpdateTime(LocalDateTime.now());
-        sever.posts(u);
-        return  new Result(1,"post",u);
+*/       String s=f.getOriginalFilename();
+       f.transferTo(new File("D:/"+s));
+        return  new Result(1,"post",s);
     }
 }
