@@ -18,6 +18,7 @@ package com.example.demo.Control;
 
 import com.example.demo.Domain.Emp;
 import com.example.demo.Domain.User;
+import com.example.demo.Filter.JWT;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import com.example.demo.Utils.ConstantPropertiesUtils.*;
 /**
@@ -49,6 +52,8 @@ public class PathVariableController {
 
     @Autowired
     private Down Down;
+    @Autowired
+    private JWT jwt;
    @GetMapping("/Emps")
     public Result list(){
        List<Emp>s=sever.getAll();
@@ -93,5 +98,14 @@ public class PathVariableController {
     public  Result getOssFile(String url) throws Exception {
         String s=Down.downloadFile(url);
         return new Result(1,"OK",s);
+    }
+    @PostMapping("/login")
+    public Result login(@RequestBody Emp e){
+        Map<String,Object> m=new HashMap<>();
+        m.put("id",e.getId());
+        m.put("name",e.getName());
+        m.put("username",e.getUsername());
+        String s=jwt.genJwt(m);
+        return new Result(1,"JWT",s);
     }
 }
