@@ -7,8 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
-@ControllerAdvice
-@RestController
+//@ControllerAdvice
+//@RestController
+@RestControllerAdvice
 public class GlobalException {
     private static final Logger logger = LoggerFactory.getLogger(GlobalException.class);
     // 捕获所有未处理异常
