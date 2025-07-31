@@ -7,6 +7,35 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>demo</name>
     <description>demo</description>
+    <packaging>jar</packaging>
+
+    <!-- 本地nexus私有库-->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>snapshots</name>
+            <url>http://localhost:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>releases</id>
+            <name>release</name>
+            <url>http://localhost:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
+    <!--获取公共的Maven依赖库-->
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <url>http://localhost:8081/repository/maven-public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

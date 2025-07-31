@@ -16,6 +16,7 @@
 
 package com.example.demo.Control;
 
+import com.example.demo.Aop.MyAnnotation;
 import com.example.demo.Domain.Emp;
 import com.example.demo.Domain.User;
 import com.example.demo.Filter.JWT;
@@ -36,6 +37,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import com.example.demo.Utils.ConstantPropertiesUtils.*;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
  */
@@ -54,6 +59,8 @@ public class PathVariableController {
     private Down Down;
     @Autowired
     private JWT jwt;
+
+
    @GetMapping("/Emps")
     public Result list(){
        List<Emp>s=sever.getAll();
@@ -101,6 +108,8 @@ public class PathVariableController {
     }
     @PostMapping("/login")
     public Result login(@RequestBody Emp e){
+        boolean flag=sever.login(e);
+        if(!flag) return new Result(0,"登陆失败",e);
         Map<String,Object> m=new HashMap<>();
         m.put("id",e.getId());
         m.put("name",e.getName());
@@ -108,4 +117,35 @@ public class PathVariableController {
         String s=jwt.genJwt(m);
         return new Result(1,"JWT",s);
     }
+    @PostMapping("/logincookie")
+    public Result login(@RequestBody Emp Emp, HttpServletResponse response) {
+        // 模拟认证成功
+        if ("admin".equals(Emp.getUsername()) && "123".equals(Emp.getPassword())) {
+            Cookie cookie = new Cookie("token", "abc123xyz"); // 设置 Cookie 名称和值
+            cookie.setPath("/");               // 设置作用路径
+            cookie.setMaxAge(3600);            // 设置有效时间（秒），3600s = 1小时
+            cookie.setHttpOnly(true);          // 防止前端 JS 访问（增加安全性）
+            response.addCookie(cookie);        // 添加到响应中
+            return new Result(1, "登录成功","");
+        }
+        return new Result(0, "用户名或密码错误","");
+    }
+    @GetMapping("/profile")
+    public Result profile(@CookieValue(value = "token", defaultValue = "") String token) {
+        //Cookie [] cookies=request.getCookies();
+        if ("abc123xyz".equals(token)) {
+            return new Result(1, "获取用户资料成功","");
+        }
+        return new Result(0, "未登录或 token 无效","");
+    }
+    @GetMapping("/logout")
+    public Result logout(HttpServletResponse response) {
+        Cookie cookie = new Cookie("token", null);
+        cookie.setPath("/");
+        cookie.setMaxAge(0); // 立即过期
+        response.addCookie(cookie);
+        return new Result(1, "注销成功","");
+    }
+
+
 }

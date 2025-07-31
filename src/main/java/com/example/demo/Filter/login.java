@@ -3,19 +3,23 @@ package com.example.demo.Filter;
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.Control.Result;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Slf4j
 @WebFilter("/*")  // 拦截所有请求
+@Component
 public class login implements Filter {
-    @Resource
+    @Autowired
     private JWT jwt;  // 注入你写的 JWT 工具类
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
@@ -30,6 +34,10 @@ public class login implements Filter {
         }
         // 获取 token
         String token = request.getHeader("token");
+       /* Cookie []c=request.getCookies();
+        for(Cookie co:c){
+            co.getName().equals("");
+        }*/
         // 检查 token 是否存在且合法
         if (!StringUtils.hasLength(token) || !jwt.encode(token)) {
             Result r = new Result(0, "error", "not login or token expired");

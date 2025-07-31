@@ -3,6 +3,7 @@ package com.example.demo.Filter;
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.Control.Result;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -14,9 +15,10 @@ import java.io.IOException;
 
 @Slf4j
 @Component
+
 public class JwtInterceptor implements HandlerInterceptor {
 
-    @Resource
+    @Autowired
     private JWT jwt;
 
     @Override
@@ -26,7 +28,6 @@ public class JwtInterceptor implements HandlerInterceptor {
         if (url.contains("login")) {
             return true;
         }
-
         String token = request.getHeader("token");
 
         if (!StringUtils.hasLength(token) || !jwt.encode(token)) {

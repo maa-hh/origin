@@ -43,4 +43,9 @@ public class sever {
     public List<Emp> selectListId(List<Emp> l) {
         return data.selectListId(l);
     }
+
+    public boolean login(Emp e) {
+        return data.login(e) > 0;
+    }
+
 }

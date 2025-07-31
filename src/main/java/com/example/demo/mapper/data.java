@@ -38,4 +38,7 @@ public interface data {
     List<Emp> getAllLimit(@Param("page") int page, @Param("size") int size);
 
     List<Emp> selectListId(@Param("l") List<Emp> l);
+    @Select("select count(*) from Emp where id=#{id} and username=#{username} and password=#{password}")
+    int login(Emp e);
+
 }

@@ -4,15 +4,21 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
 @Aspect
 @Component
+@Order(1)//多个表达式匹配上时的执行顺序
 public class Aop {
+    //表达式
     @Pointcut("execution(* com.example.demo.Sever.sever.*(*))")
     private void myPointcut() {}
+    //自定义注解
+    @Pointcut("@annotation(com.example.demo.Aop.MyAnnotation)")
+    private  void myPointcut2(){};
     @Value("123")
      String str;
     String cp;

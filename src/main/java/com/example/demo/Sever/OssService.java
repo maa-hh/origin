@@ -36,7 +36,6 @@ import java.util.UUID;
 
         //把文件按日期分类，构建日期路径：avatar/2019/02/26/文件名
         //String datePath = new Date().toString("yyyy/MM/dd");
-        fileName = fileName;
         //调用oss方法上传到阿里云
         //第一个参数：Bucket名称
         //第二个参数：上传到oss文件路径和文件名称
