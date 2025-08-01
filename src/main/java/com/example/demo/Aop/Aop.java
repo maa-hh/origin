@@ -1,5 +1,6 @@
 package com.example.demo.Aop;
 
+import com.alibaba.fastjson.JSONObject;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -52,6 +53,7 @@ public class Aop {
         System.out.println("环绕通知：前");
         long start  =System.currentTimeMillis();
         Object result = joinPoint.proceed(); // 调用目标方法
+        String s=JSONObject.toJSONString(result);//方法返回值
         Object [] args=joinPoint.getArgs();
         System.out.println(Arrays.toString(args));
         /*

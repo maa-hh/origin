@@ -32,5 +32,5 @@ build/
 ### VS Code ###
 .vscode/
 # 忽略敏感配置文件
-application-secret.properties
+src/main/resources/application-secret.yml
 .env

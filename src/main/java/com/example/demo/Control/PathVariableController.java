@@ -16,6 +16,7 @@
 
 package com.example.demo.Control;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.example.demo.Aop.MyAnnotation;
 import com.example.demo.Domain.Emp;
 import com.example.demo.Domain.User;
@@ -69,9 +70,10 @@ public class PathVariableController {
    }
    @GetMapping("/Emp")
    public  Result listLimit(@RequestParam(defaultValue = "1") int page,@RequestParam(defaultValue = "10") int size){
-       PageInfo<Emp> s = sever.getAllLimit(page, size);
+       //PageInfo<Emp> s = sever.getAllLimit(page, size);
+       IPage<Emp> s= sever.getAllLimit(page,size);
        log.info("检查第 " + page + " 页，本页 " + s.getTotal() + " 行数据");
-       return new Result(1, "selectLimit", s);
+       return new Result(1, s.getTotal()+"selectLimit", s);
    }
    /*@GetMapping("/Emp")
    public Result selectListId(@RequestBody List<Emp> l){

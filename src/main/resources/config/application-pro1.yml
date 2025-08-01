@@ -1,0 +1,17 @@
+# application.yml
+
+spring:
+  profiles:
+    active: pro2
+
+---
+spring:
+  profiles: pro1
+server:
+  port: 8082
+
+---
+spring:
+  profiles: pro2
+server:
+  port: 8083
