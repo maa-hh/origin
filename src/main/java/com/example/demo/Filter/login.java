@@ -17,7 +17,7 @@ import java.io.IOException;
 
 @Slf4j
 @WebFilter("/*")  // 拦截所有请求
-@Component
+//@Component
 public class login implements Filter {
     @Autowired
     private JWT jwt;  // 注入你写的 JWT 工具类

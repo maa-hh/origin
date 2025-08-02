@@ -35,7 +35,7 @@ public class JWT {
     }
 
     // 解析 Token 获取内容
-    public Claims getClaims(String token) {
+    public  Claims getClaims(String token) {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
     }
 }

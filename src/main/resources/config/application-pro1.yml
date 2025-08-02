@@ -5,13 +5,16 @@ spring:
     active: pro2
 
 ---
-spring:
-  profiles: pro1
 server:
   port: 8082
 
----
 spring:
-  profiles: pro2
+  profiles: pro1
+
+---
+
 server:
   port: 8083
+
+spring:
+  profiles: pro2

@@ -1,13 +1,17 @@
 package com.example.demo.Aop;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.demo.Filter.JWT;
+import io.jsonwebtoken.Claims;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
 @Aspect
@@ -23,6 +27,10 @@ public class Aop {
     @Value("123")
      String str;
     String cp;
+    @Autowired
+    HttpServletRequest request;
+    @Autowired
+    JWT JWT;
     // 前置通知
     @Before("myPointcut()")
     public void beforeAdvice() {
@@ -50,8 +58,20 @@ public class Aop {
     // 环绕通知
     @Around("myPointcut()")
     public Object aroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
+        String url = request.getRequestURL().toString();
+        // 登录接口放行
+        if (!url.contains("login")) {
+            String token=request.getHeader("token");
+            Claims claim=JWT.getClaims(token);
+            String id=(String) claim.get("id");
+            String name=(String) claim.get("name");
+            String username=(String)claim.get("username");
+            System.out.println(id+":"+name+":"+username+":");
+        }
         System.out.println("环绕通知：前");
         long start  =System.currentTimeMillis();
+        String className=joinPoint.getTarget().getClass().getName();
+        String methodName=joinPoint.getSignature().getName();
         Object result = joinPoint.proceed(); // 调用目标方法
         String s=JSONObject.toJSONString(result);//方法返回值
         Object [] args=joinPoint.getArgs();
@@ -65,6 +85,7 @@ public class Aop {
         * */
         long end=System.currentTimeMillis();
         System.out.println("环绕通知：耗费时间"+(end-start)+"millis");
+
         return result;
     }
 }

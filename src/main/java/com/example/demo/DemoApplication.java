@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
     public static void main(String[] args) {
        //// ApplicationContext cx= new ClassPathXmlApplicationContext("");
+
         SpringApplication.run(DemoApplication.class, args);
     }
 }
