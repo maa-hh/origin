@@ -1,3 +1,5 @@
+
+
 package com.example.demo.Sever;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -12,7 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class sever {
@@ -62,6 +66,22 @@ public class sever {
                 .eq(Emp::getUsername, e.getUsername())
                 .eq(Emp::getPassword, e.getPassword());
         List<Emp> list = data.selectList(lq);
+       /* data.selectOne(lq);
+        lq.groupBy(Emp::getId);
+        lq.between(Emp::getId,10,20);
+        lq.like(Emp::getUsername, "tom"); // 相当于 SQL: WHERE username LIKE '%tom%'
+        lq.likeLeft(Emp::getUsername, "tom");  // WHERE username LIKE '%tom'
+        lq.likeRight(Emp::getUsername, "tom"); // WHERE username LIKE 'tom%'
+        List<Map<String,Object>> ans=data.selectMaps(lq);
+        List<Integer> ids=new ArrayList<>();
+        List<Emp> ansids=data.selectBatchIds(ids);
+        data.deleteBatchIds(ids);*/
         return list != null && !list.isEmpty();  // 判断查询结果是否非空
+    }
+    public boolean optimsim(int id){
+        Emp current = data.selectById(id);
+        current.setName("小红");
+        int s = data.updateById(current); // 自动带 version 判断，并自动 version+1
+        return s > 0;
     }
 }

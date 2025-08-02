@@ -148,6 +148,10 @@ public class PathVariableController {
         response.addCookie(cookie);
         return new Result(1, "注销成功","");
     }
-
+    @GetMapping("/opt")
+    public Result opt(int id){
+        boolean ans=sever.optimsim(id);
+        return new Result(1,"OK",String.valueOf(ans));
+    }
 
 }
