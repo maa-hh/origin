@@ -3,7 +3,6 @@ package com.example.demo.Aop;
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.Filter.JWT;
 import io.jsonwebtoken.Claims;
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;

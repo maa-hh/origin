@@ -16,28 +16,20 @@
 
 package com.example.demo.Control;
 
+import com.aliyun.oss.Service.OssService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.example.demo.Aop.MyAnnotation;
 import com.example.demo.Domain.Emp;
-import com.example.demo.Domain.User;
 import com.example.demo.Filter.JWT;
-import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.example.demo.Sever.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
-import java.time.LocalDateTime;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
-import com.example.demo.Utils.ConstantPropertiesUtils.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -55,9 +47,6 @@ public class PathVariableController {
     deptSever deptSever;
     @Autowired
     private OssService ossService;
-
-    @Autowired
-    private Down Down;
     @Autowired
     private JWT jwt;
 
@@ -105,7 +94,7 @@ public class PathVariableController {
     }
     @GetMapping("/Load")
     public  Result getOssFile(String url) throws Exception {
-        String s=Down.downloadFile(url);
+        String s= ossService.downloadFile(url);
         return new Result(1,"OK",s);
     }
     @PostMapping("/login")

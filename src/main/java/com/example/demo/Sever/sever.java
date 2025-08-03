@@ -66,6 +66,7 @@ public class sever {
                 .eq(Emp::getUsername, e.getUsername())
                 .eq(Emp::getPassword, e.getPassword());
         List<Emp> list = data.selectList(lq);
+        Emp s=data.selectOne(lq);
        /* data.selectOne(lq);
         lq.groupBy(Emp::getId);
         lq.between(Emp::getId,10,20);

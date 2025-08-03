@@ -19,7 +19,7 @@ import java.io.IOException;
 @WebFilter("/*")  // 拦截所有请求
 //@Component
 public class login implements Filter {
-    @Autowired
+   // @Autowired
     private JWT jwt;  // 注入你写的 JWT 工具类
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)

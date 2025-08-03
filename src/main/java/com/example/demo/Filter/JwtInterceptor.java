@@ -28,6 +28,7 @@ public class JwtInterceptor implements HandlerInterceptor {
         if (url.contains("login")) {
             return true;
         }
+
         String token = request.getHeader("token");
 
         if (!StringUtils.hasLength(token) || !jwt.encode(token)) {
@@ -36,7 +37,8 @@ public class JwtInterceptor implements HandlerInterceptor {
             response.setContentType("application/json;charset=utf-8");
             response.getWriter().write(s);
             System.out.println("not token or expire");
-            return false; // 拦截请求
+            return true;
+            //return false; // 拦截请求
         }
 
         return true; // 放行请求
