@@ -16,7 +16,7 @@ public class Emp {
     @TableId(type = IdType.AUTO)
     private  Integer id;
     private  String username;
-    //@TableField(value = "password",select = false)
+    @TableField(value = "password",select = false)
     private  String password;
     private  String name;
     private  short gender;

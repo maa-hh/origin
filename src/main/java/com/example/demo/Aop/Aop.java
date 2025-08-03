@@ -60,14 +60,13 @@ public class Aop {
     public Object aroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
         String url = request.getRequestURL().toString();
         // 登录接口放行
-        /*if (!url.contains("login")) {
+        if (!url.contains("login")) {
             String token=request.getHeader("token");
             Claims claim=JWT.getClaims(token);
-            String id=(String) claim.get("id");
-            String name=(String) claim.get("name");
-            String username=(String)claim.get("username");
-            System.out.println(id+":"+name+":"+username+":");
-        }*/
+            String id = String.valueOf(claim.get("id"));
+            String username = String.valueOf(claim.get("username"));
+            System.out.println(id + ":" + username + ":" + username);
+        }
         System.out.println("环绕通知：前");
         long start  =System.currentTimeMillis();
         String className=joinPoint.getTarget().getClass().getName();
