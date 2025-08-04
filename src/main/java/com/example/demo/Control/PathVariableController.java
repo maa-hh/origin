@@ -39,7 +39,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Slf4j
 @RestController
-@RequestMapping
+//@RequestMapping(value = "/qq",method=RequestMethod.GET);
 public class PathVariableController {
     @Autowired
     sever sever;

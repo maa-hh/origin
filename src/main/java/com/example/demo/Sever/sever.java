@@ -10,6 +10,7 @@ import com.example.demo.Domain.Emp;
 import com.example.demo.Domain.User;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import jdk.internal.joptsimple.internal.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,7 +63,8 @@ public class sever {
 
     public boolean login(Emp e) {
         LambdaQueryWrapper<Emp> lq = new LambdaQueryWrapper<>();
-        lq.eq(Emp::getId, e.getId())
+        //加限制条件
+        lq.eq(Strings.isNullOrEmpty(e.getId().toString()),Emp::getId, e.getId())
                 .eq(Emp::getUsername, e.getUsername())
                 .eq(Emp::getPassword, e.getPassword());
         List<Emp> list = data.selectList(lq);

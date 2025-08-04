@@ -1,12 +1,15 @@
 package com.example.demo.generator;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
 import org.apache.commons.lang3.StringUtils;
-//import org.apache.log4j.Logger;
-
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
@@ -14,19 +17,13 @@ import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
-import com.baomidou.mybatisplus.generator.config.converts.OracleTypeConvert;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
-import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
-import com.baomidou.mybatisplus.generator.config.rules.IColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
-//import com.lqy.ss.utils.DateUtils;
-//import com.lqy.ss.utils.StrUtils;
+import org.springframework.format.annotation.DateTimeFormat;
 
+@Slf4j
 public class MyGenerator {
-
-  //  private static Logger log = Logger.getLogger(CodeGenerator.class);
-
     private static final String jdbcUserName = "root";
     private static final String jdbcPassword = "123456";
 
@@ -151,9 +148,6 @@ public class MyGenerator {
         pc.setServiceImpl(implName);
         pc.setXml(xmlName);
 
-
-
-
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
@@ -197,7 +191,12 @@ public class MyGenerator {
         mpg.setCfg(injectionConfig);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
-        //log.info("代码生成已经完成。" + DateUtils.formatDateTime(new Date()));
+
+        LocalDateTime now = LocalDateTime.now();
+        // 自定义格式输出
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedNow = now.format(formatter);
+        log.info("代码生成已经完成。" + formattedNow);
     }
 
 

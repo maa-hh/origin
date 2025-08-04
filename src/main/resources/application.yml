@@ -1,7 +1,9 @@
 spring:
   config:
     import: optional:application-secret.yml
-
+  main:
+    banner-mode: off
+  #运行图标
   application:
     name: service-oss
 
@@ -53,6 +55,13 @@ mybatis-plus:
       logic-delete-field: deleted
       logic-delete-value: 1
       logic-not-delete-value: 0
+      table-prefix:
 a:
   -b
   -c
+like: [abs,ddd]
+like1: [{a:1,b:2,c:3},{e:1,d:2,f:4}]
+logging:
+  level:
+    root: debug
+#日志开启级别
