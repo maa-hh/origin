@@ -1,0 +1,21 @@
+2025-08-06 16:13:25.783 DEBUG 23844 --- [qtp766069067-37] o.e.jetty.util.thread.QueuedThreadPool   : ran org.eclipse.jetty.util.thread.QueuedThreadPool$$Lambda$561/0x0000015c0c3a8470@336cc882 in QueuedThreadPool[qtp766069067]@2da9494b{STOPPING,8<=0<=200,i=8,r=-1,q=0}[NO_TRY]
+2025-08-06 16:13:25.784 DEBUG 23844 --- [qtp766069067-39] o.e.jetty.util.thread.QueuedThreadPool   : Thread[qtp766069067-39,5,main] exited for QueuedThreadPool[qtp766069067]@2da9494b{STOPPING,8<=0<=200,i=8,r=-1,q=0}[NO_TRY]
+2025-08-06 16:13:25.784 DEBUG 23844 --- [qtp766069067-38] o.e.jetty.util.thread.QueuedThreadPool   : Thread[qtp766069067-38,5,main] exited for QueuedThreadPool[qtp766069067]@2da9494b{STOPPING,8<=0<=200,i=8,r=-1,q=0}[NO_TRY]
+2025-08-06 16:13:25.785 DEBUG 23844 --- [qtp766069067-37] o.e.jetty.util.thread.QueuedThreadPool   : Thread[qtp766069067-37,5,main] exited for QueuedThreadPool[qtp766069067]@2da9494b{STOPPING,8<=0<=200,i=8,r=-1,q=0}[NO_TRY]
+2025-08-06 16:13:25.784 DEBUG 23844 --- [qtp766069067-36] o.e.jetty.util.thread.QueuedThreadPool   : ran org.eclipse.jetty.util.thread.QueuedThreadPool$$Lambda$561/0x0000015c0c3a8470@336cc882 in QueuedThreadPool[qtp766069067]@2da9494b{STOPPING,8<=0<=200,i=8,r=-1,q=0}[NO_TRY]
+2025-08-06 16:13:25.785 DEBUG 23844 --- [qtp766069067-36] o.e.jetty.util.thread.QueuedThreadPool   : Thread[qtp766069067-36,5,main] exited for QueuedThreadPool[qtp766069067]@2da9494b{STOPPING,8<=0<=200,i=8,r=-1,q=0}[NO_TRY]
+2025-08-06 16:13:25.784 DEBUG 23844 --- [qtp766069067-34] o.e.jetty.util.thread.QueuedThreadPool   : Thread[qtp766069067-34,5,main] exited for QueuedThreadPool[qtp766069067]@2da9494b{STOPPING,8<=0<=200,i=8,r=-1,q=0}[NO_TRY]
+2025-08-06 16:13:25.784 DEBUG 23844 --- [SpringApplicationShutdownHook] o.e.jetty.util.thread.QueuedThreadPool   : Interrupting Thread[qtp766069067-40,5,main]
+2025-08-06 16:13:25.784 DEBUG 23844 --- [qtp766069067-35] o.e.jetty.util.thread.QueuedThreadPool   : ran org.eclipse.jetty.util.thread.QueuedThreadPool$$Lambda$561/0x0000015c0c3a8470@336cc882 in QueuedThreadPool[qtp766069067]@2da9494b{STOPPING,8<=0<=200,i=8,r=-1,q=0}[NO_TRY]
+2025-08-06 16:13:25.785 DEBUG 23844 --- [SpringApplicationShutdownHook] o.e.jetty.util.thread.QueuedThreadPool   : Interrupting Thread[qtp766069067-36,5,]
+2025-08-06 16:13:25.783 DEBUG 23844 --- [qtp766069067-33] o.e.jetty.util.thread.QueuedThreadPool   : run org.eclipse.jetty.util.thread.QueuedThreadPool$$Lambda$561/0x0000015c0c3a8470@336cc882 in QueuedThreadPool[qtp766069067]@2da9494b{STOPPING,8<=0<=200,i=8,r=-1,q=0}[NO_TRY]
+2025-08-06 16:13:25.785 DEBUG 23844 --- [qtp766069067-35] o.e.jetty.util.thread.QueuedThreadPool   : Thread[qtp766069067-35,5,main] exited for QueuedThreadPool[qtp766069067]@2da9494b{STOPPING,8<=0<=200,i=8,r=-1,q=0}[NO_TRY]
+2025-08-06 16:13:25.785 DEBUG 23844 --- [qtp766069067-33] o.e.jetty.util.thread.QueuedThreadPool   : ran org.eclipse.jetty.util.thread.QueuedThreadPool$$Lambda$561/0x0000015c0c3a8470@336cc882 in QueuedThreadPool[qtp766069067]@2da9494b{STOPPING,8<=0<=200,i=8,r=-1,q=0}[NO_TRY]
+2025-08-06 16:13:25.785 DEBUG 23844 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerStartStop' completed its stop procedure
+2025-08-06 16:13:25.785 DEBUG 23844 --- [qtp766069067-33] o.e.jetty.util.thread.QueuedThreadPool   : Thread[qtp766069067-33,5,main] exited for QueuedThreadPool[qtp766069067]@2da9494b{STOPPED,8<=0<=200,i=8,r=-1,q=0}[NO_TRY]
+2025-08-06 16:13:25.785 DEBUG 23844 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase -2147483647
+2025-08-06 16:13:25.785 DEBUG 23844 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'springBootLoggingLifecycle' completed its stop procedure
+2025-08-06 16:13:25.786 DEBUG 23844 --- [SpringApplicationShutdownHook] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2025-08-06 16:13:25.786 DEBUG 23844 --- [SpringApplicationShutdownHook] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2025-08-06 16:13:25.787  INFO 23844 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2025-08-06 16:13:25.791  INFO 23844 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

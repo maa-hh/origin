@@ -44,6 +44,11 @@
         <freemarker.version>2.3.31</freemarker.version>
     </properties>
     <dependencies>
+        <!--Bean数据校验-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.aliyun.oss</groupId>
             <artifactId>aliyun-oss-spring-boot-strat</artifactId>
@@ -58,6 +63,11 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
             <version>3.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.jopt-simple</groupId>
+            <artifactId>jopt-simple</artifactId>
+            <version>5.0.4</version> <!-- 可根据需要选择版本 -->
         </dependency>
         <dependency>
             <groupId>org.apache.velocity</groupId>

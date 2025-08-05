@@ -10,7 +10,8 @@ import com.example.demo.Domain.Emp;
 import com.example.demo.Domain.User;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import jdk.internal.joptsimple.internal.Strings;
+
+import joptsimple.internal.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,0 +1,43 @@
+2025-08-06 16:12:03.511 DEBUG 15792 --- [RMI TCP Connection(1)-192.168.75.1] sun.rmi.loader                           : RMI TCP Connection(1)-192.168.75.1: name = "[Ljava.rmi.server.ObjID;", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@6bedb07
+2025-08-06 16:12:03.514 DEBUG 15792 --- [RMI TCP Connection(1)-192.168.75.1] sun.rmi.loader                           : RMI TCP Connection(1)-192.168.75.1: name = "java.rmi.server.ObjID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@6bedb07
+2025-08-06 16:12:03.514 DEBUG 15792 --- [RMI TCP Connection(1)-192.168.75.1] sun.rmi.loader                           : RMI TCP Connection(1)-192.168.75.1: name = "java.rmi.server.UID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@6bedb07
+2025-08-06 16:12:03.515 DEBUG 15792 --- [RMI TCP Connection(1)-192.168.75.1] sun.rmi.loader                           : RMI TCP Connection(1)-192.168.75.1: name = "java.rmi.dgc.Lease", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@6bedb07
+2025-08-06 16:12:03.515 DEBUG 15792 --- [RMI TCP Connection(1)-192.168.75.1] sun.rmi.loader                           : RMI TCP Connection(1)-192.168.75.1: name = "java.rmi.dgc.VMID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@6bedb07
+2025-08-06 16:12:03.515 DEBUG 15792 --- [RMI TCP Connection(1)-192.168.75.1] sun.rmi.loader                           : RMI TCP Connection(1)-192.168.75.1: name = "[B", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@6bedb07
+2025-08-06 16:12:03.516 DEBUG 15792 --- [RMI TCP Connection(1)-192.168.75.1] sun.rmi.transport.tcp                    : RMI TCP Connection(1)-192.168.75.1: (port 65191) op = 84
+2025-08-06 16:12:03.521 DEBUG 15792 --- [RMI TCP Connection(1)-192.168.75.1] sun.rmi.transport.tcp                    : RMI TCP Connection(1)-192.168.75.1: (port 65191) op = 82
+2025-08-06 16:12:03.522 DEBUG 15792 --- [RMI TCP Connection(1)-192.168.75.1] sun.rmi.transport.tcp                    : RMI TCP Connection(1)-192.168.75.1: (port 65191) op = 80
+2025-08-06 16:12:03.524 DEBUG 15792 --- [RMI TCP Connection(1)-192.168.75.1] sun.rmi.transport.tcp                    : RMI TCP Connection(1)-192.168.75.1: (port 65191) op = 82
+2025-08-06 16:12:03.525 DEBUG 15792 --- [RMI TCP Connection(1)-192.168.75.1] sun.rmi.transport.tcp                    : RMI TCP Connection(1)-192.168.75.1: (port 65191) op = 80
+2025-08-06 16:12:03.525 DEBUG 15792 --- [RMI TCP Connection(1)-192.168.75.1] sun.rmi.loader                           : RMI TCP Connection(1)-192.168.75.1: name = "javax.management.ObjectName", codebase = ""
+2025-08-06 16:12:03.526 DEBUG 15792 --- [RMI TCP Connection(1)-192.168.75.1] javax.management.remote.rmi              : connectionId=rmi://192.168.75.1  1, name=org.springframework.boot:type=Admin,name=SpringApplication, attribute=Ready
+2025-08-06 16:12:03.531 DEBUG 15792 --- [RMI TCP Connection(1)-192.168.75.1] sun.rmi.server.call                      : RMI TCP Connection(1)-192.168.75.1: [192.168.75.1] exception: 
+
+javax.management.InstanceNotFoundException: org.springframework.boot:type=Admin,name=SpringApplication
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.getMBean(DefaultMBeanServerInterceptor.java:1088) ~[na:na]
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.getAttribute(DefaultMBeanServerInterceptor.java:640) ~[na:na]
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.getAttribute(JmxMBeanServer.java:679) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1449) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405) ~[na:na]
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.getAttribute(RMIConnectionImpl.java:639) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197) ~[na:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712) ~[na:na]
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:587) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:828) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:705) ~[na:na]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:399) ~[na:na]
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:704) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2025-08-06 16:12:03.539 DEBUG 15792 --- [RMI TCP Connection(1)-192.168.75.1] sun.rmi.transport.tcp                    : RMI TCP Connection(1)-192.168.75.1: (port 65191) op = 82
+2025-08-06 16:12:03.540 DEBUG 15792 --- [RMI TCP Connection(1)-192.168.75.1] sun.rmi.transport.tcp                    : RMI TCP Connection(1)-192.168.75.1: (port 65191) op = 80

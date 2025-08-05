@@ -57,6 +57,7 @@ public class Aop {
     // 环绕通知
     @Around("myPointcut()")
     public Object aroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
+        System.out.println("cheng");
         String url = request.getRequestURL().toString();
         // 登录接口放行
         if (!url.contains("login")) {

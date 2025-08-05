@@ -1,0 +1,52 @@
+2025-08-06 16:13:25.771 DEBUG 23844 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483646
+2025-08-06 16:13:25.772 DEBUG 23844 --- [SpringApplicationShutdownHook] org.eclipse.jetty.server.Server          : doStop Server@701b3fb2{STOPPING}[9.4.49.v20220914]
+2025-08-06 16:13:25.772 DEBUG 23844 --- [qtp766069067-39] o.e.jetty.util.thread.QueuedThreadPool   : ran qtp766069067-39-acceptor-0@4e521bdd-ServerConnector@467b245f{HTTP/1.1, (http/1.1)}{0.0.0.0:8080} in QueuedThreadPool[qtp766069067]@2da9494b{STARTED,8<=8<=200,i=1,r=-1,q=0}[ReservedThreadExecutor@24148cc1{reserved=0/12,pending=0}]
+2025-08-06 16:13:25.774 DEBUG 23844 --- [SpringApplicationShutdownHook] org.eclipse.jetty.io.ManagedSelector     : Queued change lazy=false org.eclipse.jetty.io.ManagedSelector$CloseConnections@30443c6f on ManagedSelector@48d73838{STOPPING} id=5 keys=0 selected=0 updates=0
+2025-08-06 16:13:25.774 DEBUG 23844 --- [SpringApplicationShutdownHook] org.eclipse.jetty.io.ManagedSelector     : Wakeup on submit ManagedSelector@48d73838{STOPPING} id=5 keys=0 selected=0 updates=1
+2025-08-06 16:13:25.774 DEBUG 23844 --- [qtp766069067-38] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@77d09106 woken with none selected
+2025-08-06 16:13:25.774 DEBUG 23844 --- [qtp766069067-38] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@77d09106 woken up from select, 0/0/0 selected
+2025-08-06 16:13:25.774 DEBUG 23844 --- [qtp766069067-38] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@77d09106 processing 0 keys, 1 updates
+2025-08-06 16:13:25.774 DEBUG 23844 --- [qtp766069067-38] org.eclipse.jetty.io.ManagedSelector     : updateable 1
+2025-08-06 16:13:25.774 DEBUG 23844 --- [qtp766069067-38] org.eclipse.jetty.io.ManagedSelector     : update org.eclipse.jetty.io.ManagedSelector$CloseConnections@30443c6f
+2025-08-06 16:13:25.774 DEBUG 23844 --- [qtp766069067-38] org.eclipse.jetty.io.ManagedSelector     : Closing 0 connections on ManagedSelector@48d73838{STOPPING} id=5 keys=0 selected=0 updates=0
+2025-08-06 16:13:25.774 DEBUG 23844 --- [qtp766069067-38] org.eclipse.jetty.io.ManagedSelector     : updates 0
+2025-08-06 16:13:25.774 DEBUG 23844 --- [qtp766069067-38] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@77d09106 waiting with 0 keys
+2025-08-06 16:13:25.774 DEBUG 23844 --- [SpringApplicationShutdownHook] org.eclipse.jetty.io.ManagedSelector     : Queued change lazy=false org.eclipse.jetty.io.ManagedSelector$StopSelector@370ee8a on ManagedSelector@48d73838{STOPPING} id=5 keys=0 selected=0 updates=0
+2025-08-06 16:13:25.774 DEBUG 23844 --- [SpringApplicationShutdownHook] org.eclipse.jetty.io.ManagedSelector     : Wakeup on submit ManagedSelector@48d73838{STOPPING} id=5 keys=0 selected=0 updates=1
+2025-08-06 16:13:25.774 DEBUG 23844 --- [qtp766069067-38] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@77d09106 woken with none selected
+2025-08-06 16:13:25.774 DEBUG 23844 --- [qtp766069067-38] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@77d09106 woken up from select, 0/0/0 selected
+2025-08-06 16:13:25.775 DEBUG 23844 --- [qtp766069067-38] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@77d09106 processing 0 keys, 1 updates
+2025-08-06 16:13:25.775 DEBUG 23844 --- [qtp766069067-38] org.eclipse.jetty.io.ManagedSelector     : updateable 1
+2025-08-06 16:13:25.775 DEBUG 23844 --- [qtp766069067-38] org.eclipse.jetty.io.ManagedSelector     : update org.eclipse.jetty.io.ManagedSelector$StopSelector@370ee8a
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-38] org.eclipse.jetty.io.ManagedSelector     : updates 0
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-38] o.e.jetty.util.thread.QueuedThreadPool   : ran org.eclipse.jetty.io.ManagedSelector$$Lambda$906/0x0000015c0c627698@1ed86a57 in QueuedThreadPool[qtp766069067]@2da9494b{STARTED,8<=8<=200,i=2,r=-1,q=0}[ReservedThreadExecutor@24148cc1{reserved=0/12,pending=0}]
+2025-08-06 16:13:25.776 DEBUG 23844 --- [SpringApplicationShutdownHook] org.eclipse.jetty.io.ManagedSelector     : Queued change lazy=false org.eclipse.jetty.io.ManagedSelector$CloseConnections@2921b66c on ManagedSelector@65b713f4{STOPPING} id=4 keys=0 selected=0 updates=0
+2025-08-06 16:13:25.776 DEBUG 23844 --- [SpringApplicationShutdownHook] org.eclipse.jetty.io.ManagedSelector     : Wakeup on submit ManagedSelector@65b713f4{STOPPING} id=4 keys=0 selected=0 updates=1
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-37] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@17ab480b woken with none selected
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-37] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@17ab480b woken up from select, 0/0/0 selected
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-37] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@17ab480b processing 0 keys, 1 updates
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-37] org.eclipse.jetty.io.ManagedSelector     : updateable 1
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-37] org.eclipse.jetty.io.ManagedSelector     : update org.eclipse.jetty.io.ManagedSelector$CloseConnections@2921b66c
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-37] org.eclipse.jetty.io.ManagedSelector     : Closing 0 connections on ManagedSelector@65b713f4{STOPPING} id=4 keys=0 selected=0 updates=0
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-37] org.eclipse.jetty.io.ManagedSelector     : updates 0
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-37] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@17ab480b waiting with 0 keys
+2025-08-06 16:13:25.776 DEBUG 23844 --- [SpringApplicationShutdownHook] org.eclipse.jetty.io.ManagedSelector     : Queued change lazy=false org.eclipse.jetty.io.ManagedSelector$StopSelector@4efa9b1f on ManagedSelector@65b713f4{STOPPING} id=4 keys=0 selected=0 updates=0
+2025-08-06 16:13:25.776 DEBUG 23844 --- [SpringApplicationShutdownHook] org.eclipse.jetty.io.ManagedSelector     : Wakeup on submit ManagedSelector@65b713f4{STOPPING} id=4 keys=0 selected=0 updates=1
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-37] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@17ab480b woken with none selected
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-37] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@17ab480b woken up from select, 0/0/0 selected
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-37] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@17ab480b processing 0 keys, 1 updates
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-37] org.eclipse.jetty.io.ManagedSelector     : updateable 1
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-37] org.eclipse.jetty.io.ManagedSelector     : update org.eclipse.jetty.io.ManagedSelector$StopSelector@4efa9b1f
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-37] org.eclipse.jetty.io.ManagedSelector     : updates 0
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-37] o.e.jetty.util.thread.QueuedThreadPool   : ran org.eclipse.jetty.io.ManagedSelector$$Lambda$906/0x0000015c0c627698@533122ab in QueuedThreadPool[qtp766069067]@2da9494b{STARTED,8<=8<=200,i=3,r=-1,q=0}[ReservedThreadExecutor@24148cc1{reserved=0/12,pending=0}]
+2025-08-06 16:13:25.776 DEBUG 23844 --- [SpringApplicationShutdownHook] org.eclipse.jetty.io.ManagedSelector     : Queued change lazy=false org.eclipse.jetty.io.ManagedSelector$CloseConnections@6c61fcfe on ManagedSelector@38fd2e1e{STOPPING} id=3 keys=0 selected=0 updates=0
+2025-08-06 16:13:25.776 DEBUG 23844 --- [SpringApplicationShutdownHook] org.eclipse.jetty.io.ManagedSelector     : Wakeup on submit ManagedSelector@38fd2e1e{STOPPING} id=3 keys=0 selected=0 updates=1
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-36] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@53893a0f woken with none selected
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-36] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@53893a0f woken up from select, 0/0/0 selected
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-36] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@53893a0f processing 0 keys, 1 updates
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-36] org.eclipse.jetty.io.ManagedSelector     : updateable 1
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-36] org.eclipse.jetty.io.ManagedSelector     : update org.eclipse.jetty.io.ManagedSelector$CloseConnections@6c61fcfe
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-36] org.eclipse.jetty.io.ManagedSelector     : Closing 0 connections on ManagedSelector@38fd2e1e{STOPPING} id=3 keys=0 selected=0 updates=0
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-36] org.eclipse.jetty.io.ManagedSelector     : updates 0
+2025-08-06 16:13:25.776 DEBUG 23844 --- [qtp766069067-36] org.eclipse.jetty.io.ManagedSelector     : Selector sun.nio.ch.WEPollSelectorImpl@53893a0f waiting with 0 keys
+2025-08-06 16:13:25.777 DEBUG 23844 --- [SpringApplicationShutdownHook] org.eclipse.jetty.io.ManagedSelector     : Queued change lazy=false org.eclipse.jetty.io.ManagedSelector$StopSelector@68e15b46 on ManagedSelector@38fd2e1e{STOPPING} id=3 keys=0 selected=0 updates=0

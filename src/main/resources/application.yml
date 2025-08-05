@@ -29,6 +29,9 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 100MB
+  devtools:
+    remote:
+      context:static/**,public/**
 
 server:
   port: 8080
@@ -63,5 +66,16 @@ like: [abs,ddd]
 like1: [{a:1,b:2,c:3},{e:1,d:2,f:4}]
 logging:
   level:
-    root: debug
+    root: info
+  pattern:
+    console: "%d %clr(%5p) --- [%16t] %clr(%-40.40c){cyan} : %m %n"
+  #file:
+   # name: server.log
+  #logback:
+   # rollingpolicy:
+    # max-file-size: 4KB
+     # file-name-pattern: server.%d{yyyy-MM-dd}.%i.log
 #日志开启级别
+my:
+  dura: 10  # 表示10分钟（由注解指定单位为 MINUTES）
+  data: 2048 # 表示2048字节（注解指定单位为 BYTES）
