@@ -12,10 +12,18 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 import joptsimple.internal.Strings;
+import org.apache.commons.lang3.builder.ToStringExclude;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.HashOperations;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -88,4 +96,29 @@ public class sever {
         int s = data.updateById(current); // 自动带 version 判断，并自动 version+1
         return s > 0;
     }
+    @Autowired
+    JdbcTemplate jdbcTemplate;
+    public List<Emp> testJDBC(){
+        String sql="select * from Emp";
+        List<Emp> ans=jdbcTemplate.query(sql, new RowMapper<Emp>() {
+            @Override
+            public Emp mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Emp emp=new Emp();
+                emp.setId(rs.getInt("id"));
+                emp.setName(rs.getString("name"));
+                return emp;
+            }
+        });
+        return ans;
+    }
+    public void testRedis(@Autowired RedisTemplate redis){
+       ValueOperations op1 = redis.opsForValue();
+       op1.set("123","12");
+       op1.get("123");
+       HashOperations op2= redis.opsForHash();
+       op2.put("1","name","xiaoming");
+       op2.get("1","name");
+    }
+
+
 }

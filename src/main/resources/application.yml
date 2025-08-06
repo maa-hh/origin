@@ -6,6 +6,24 @@ spring:
   #运行图标
   application:
     name: service-oss
+  jdbc:
+    template:
+      fetch-size: -1 #缓存行数
+      max-rows: 500 #最大行数
+      query-timeout: -1 #查询超时时间
+  redis:
+    host: localhost
+    port: 6379
+    client-type: lettuce
+    lettuce:
+      pool:
+        max-active: 16
+    jedis:
+      pool:
+        max-active: 16
+  elasticsearch:
+    rest:
+      uris:  http://localhost:9200
 
   datasource:
     druid:
@@ -24,6 +42,14 @@ spring:
       test-while-idle: true
       time-between-eviction-runs-millis: 60000
       min-evictable-idle-time-millis: 300000
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:~/test
+    username: sa
+    password: 123456
+  h2:
+    console:
+      path: /h2
+      enabled: false
 
   servlet:
     multipart:
@@ -60,8 +86,11 @@ mybatis-plus:
       logic-not-delete-value: 0
       table-prefix:
 a:
-  -b
-  -c
+  id: ${random.int}
+  uuid: ${random.uuid}
+  time: ${random.long}
+  name: ${random.value}
+  money:  ${random.int(10,20)};
 like: [abs,ddd]
 like1: [{a:1,b:2,c:3},{e:1,d:2,f:4}]
 logging:
