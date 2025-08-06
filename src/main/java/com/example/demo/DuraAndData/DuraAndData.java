@@ -24,9 +24,9 @@ import java.time.temporal.ChronoUnit;
 @AllArgsConstructor
 public class DuraAndData {
     @DurationUnit(ChronoUnit.MINUTES)
-    @Min(value = 0,message = "最小0")
+   // @Min(value = 0,message = "最小0")
     private Duration dura;
-    @Max(value = 10000,message = "最大10000B")
+    //@Max(value = 10000,message = "最大10000B")
     @DataSizeUnit(DataUnit.BYTES)
     private DataSize data;
    /* @NotNull
