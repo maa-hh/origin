@@ -1,13 +1,27 @@
 package com.example.demo;
 
+import com.alibaba.fastjson.JSON;
+import com.example.demo.Domain.Emp;
+import com.example.demo.Sever.sever;
 import net.sf.jsqlparser.statement.create.index.CreateIndex;
 import org.apache.http.HttpHost;
+import org.elasticsearch.action.bulk.BulkRequest;
+import org.elasticsearch.action.get.GetRequest;
+import org.elasticsearch.action.get.GetResponse;
+import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.action.search.SearchRequest;
+import org.elasticsearch.action.search.SearchRequestBuilder;
+import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.client.indices.CreateIndexRequest;
 import org.elasticsearch.common.xcontent.XContentType;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.SearchHits;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -24,14 +38,19 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.*;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.xml.bind.annotation.XmlType;
 import java.io.IOException;
-
-@SpringBootTest(classes=DemoApplication.class,webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)//添加模拟端口
+import java.util.List;
+//properties = {} 添加临时变量,args = {}，临时命令
+@SpringBootTest(classes=DemoApplication.class,webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,properties = {},args = {})//添加模拟端口
 //@Import(data.calss) 加载测试类专用的配置
 @AutoConfigureMockMvc//模拟MVC
 //@Transactional
 //@Rollback(false)
 class DemoApplicationTests {
+    @Autowired
+    sever sever;
+    @Test
     public void test(@Autowired MockMvc mvc) throws Exception{
         //创建虚拟请求
         MockHttpServletRequestBuilder builde= MockMvcRequestBuilders.get("/books");
@@ -64,6 +83,7 @@ class DemoApplicationTests {
     void testES() throws IOException {
         HttpHost ht=HttpHost.create("http://localhost:9200");
         RestClientBuilder re= RestClient.builder(ht);
+
         RestHighLevelClient rh=new RestHighLevelClient(re);
 
         CreateIndexRequest rq = new CreateIndexRequest("books");
@@ -77,6 +97,31 @@ class DemoApplicationTests {
                 XContentType.JSON);
 
         rh.indices().create(rq, RequestOptions.DEFAULT);
+
+        List<Emp> emp=sever.getAll();
+        BulkRequest bulk=new BulkRequest();
+        for(Emp em:emp){
+            IndexRequest r=new IndexRequest("books").id(em.getId().toString());
+            String josn = JSON.toJSONString(em);
+            r.source(josn,XContentType.JSON);
+            bulk.add(r);
+        }
+        rh.bulk(bulk,RequestOptions.DEFAULT);
+
+        SearchRequest sr=new SearchRequest("books");
+        SearchSourceBuilder sbuilder=new SearchSourceBuilder();
+        sbuilder.query(QueryBuilders.termQuery("title","Java"));
+        sr.source(sbuilder);
+        SearchResponse srp=rh.search(sr,RequestOptions.DEFAULT);
+        SearchHits sh=srp.getHits();
+        for(SearchHit hit:sh){
+            String ss=hit.getSourceAsString();
+            Emp e=JSON.parseObject(ss, Emp.class);
+        }
+
+        GetRequest gr=new GetRequest("books","1");
+        GetResponse rp=rh.get(gr, RequestOptions.DEFAULT);
+        String json=rp.getSourceAsString();
         rh.close();
 
     }

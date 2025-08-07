@@ -55,6 +55,9 @@ public class PathVariableController {
     public Result list(){
        List<Emp>s=sever.getAll();
        log.info("getEmps");
+       //log.warn("");
+       //log.debug("");
+       //log.error("");
        return new Result(1,"OK",s);
    }
    @GetMapping("/Emp")

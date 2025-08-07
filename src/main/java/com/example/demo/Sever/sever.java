@@ -14,6 +14,7 @@ import com.github.pagehelper.PageInfo;
 import joptsimple.internal.Strings;
 import org.apache.commons.lang3.builder.ToStringExclude;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -90,6 +91,7 @@ public class sever {
         data.deleteBatchIds(ids);*/
         return list != null && !list.isEmpty();  // 判断查询结果是否非空
     }
+
     public boolean optimsim(int id){
         Emp current = data.selectById(id);
         current.setName("小红");

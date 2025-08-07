@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@Import({com.example.demo.Config.MyBatis.class,com.example.demo.Config.WebMvcConfig.class})
+@Import({com.example.demo.Config.MyBatis.class,com.example.demo.Config.WebMvcConfig.class,com.example.demo.Config.QuartzConfig.class})
 //@EnableMyService({"com.example.demo.Sever.sever.class"})
 /*
 *@ConditionalOnProperty
