@@ -22,7 +22,7 @@ public class SSMserver {
         // 当前系统时间（毫秒）
         long currentTime = System.currentTimeMillis();
         // 组合生成一个数字
-        long raw = (long) phone.hashCode()^currentTime;
+        long raw = (long) hash^currentTime;
         // 取绝对值（防止负数）并取后 6 位
         int codeNum = (int) (Math.abs(raw) % 1_000_000);
         // 转成 6 位字符串（前面补 0）

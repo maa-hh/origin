@@ -44,6 +44,11 @@
         <freemarker.version>2.3.31</freemarker.version>
     </properties>
     <dependencies>
+        <!--RabbitMQ-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
         <!-- jet cache-->
         <dependency>
             <groupId>com.alicp.jetcache</groupId>

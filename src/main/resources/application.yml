@@ -25,6 +25,11 @@ spring:
     #group:
      # "pro":  proDa,proDb
       #"dev":  devDa,devDb
+  rabbitmq:
+    host: localhost      # RabbitMQ 主机
+    port: 5672           # 端口
+    username: guest      # 用户名
+    password: guest      # 密码
   h2:
     console:
       enabled: false
@@ -127,8 +132,8 @@ mybatis:
   mapper-locations: classpath:com/example/demo/mapper/*.xml
   type-aliases-package: com.example.demo.Domain
   configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-    map-underscore-to-camel-case: true
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    map-underscore-to-camel-case: true
 # MyBatis-Plus 配置
 mybatis-plus:
   configuration:

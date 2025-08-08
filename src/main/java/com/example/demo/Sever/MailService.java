@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import java.io.File;
 
 @Service
 public class MailService {
@@ -40,6 +41,8 @@ public class MailService {
         helper.setTo(to);
         helper.setSubject(subject);
         helper.setText(htmlContent, true); // 第二个参数 true 表示 HTML
+        File f1=new File("");
+        helper.addAttachment(f1.getName(),f1);
         mailSender.send(mimeMessage);
     }
 }

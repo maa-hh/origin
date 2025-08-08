@@ -101,6 +101,7 @@ public class sever {
     @Autowired
     JdbcTemplate jdbcTemplate;
     public List<Emp> testJDBC(){
+
         String sql="select * from Emp";
         List<Emp> ans=jdbcTemplate.query(sql, new RowMapper<Emp>() {
             @Override
@@ -120,6 +121,7 @@ public class sever {
        HashOperations op2= redis.opsForHash();
        op2.put("1","name","xiaoming");
        op2.get("1","name");
+
     }
 
 

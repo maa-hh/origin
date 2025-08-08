@@ -14,6 +14,7 @@ import java.io.Serializable;
 @Service
 @Slf4j
 public class deptServerImplem extends ServiceImpl<data, Emp> implements deptSever{
+
     @Autowired
     private data data;
 
