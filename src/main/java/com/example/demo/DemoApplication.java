@@ -4,6 +4,7 @@ package com.example.demo;
 import com.alicp.jetcache.anno.config.EnableCreateCacheAnnotation;
 import com.alicp.jetcache.anno.config.EnableMethodCache;
 import com.example.demo.DuraAndData.DuraAndData;
+import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,6 +21,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 @EnableCreateCacheAnnotation
 @EnableMethodCache(basePackages = "com.example")
+@EnableAdminServer//服务端
 public class DemoApplication {
     public static void main(String[] args) {
        //// ApplicationContext cx= new ClassPathXmlApplicationContext("");
