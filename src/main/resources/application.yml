@@ -30,11 +30,11 @@ management:
     enabled-by-default: true
     web:
       exposure:
-        include: info
+        include: health,info,metrics
   info:
     app:
       name: Project
-      version: @spring-boot.version@
+      version: 2.6.13
       author: Wenshu
 
 spring:
@@ -154,7 +154,7 @@ server:
 mybatis:
   mapper-locations: classpath:com/example/demo/mapper/*.xml
   type-aliases-package: com.example.demo.Domain
-  configuration:
+# configuration:
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 #    map-underscore-to-camel-case: true
 # MyBatis-Plus 配置
