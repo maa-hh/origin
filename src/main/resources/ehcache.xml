@@ -3,7 +3,13 @@
          xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
 
     <diskStore path="D:\\IDEAJAVA\\tmp" />
-
+    <defaultcache>
+        maxBytesLocalDisk="5g" maxBytesLocalHeap="20m" maxBytesLocalOffHeap="200m"
+        maxEntriesLocalHeap="200" maxEntriesLocalDisk="300"
+        maxEntriesInCache="500" maxElementsInMemory="1000" eternal="false"
+        timeToIdleSeconds="60" timeToLiveSeconds="60" overflowToDisk="true"
+        memoryStoreEvictionPolicy="LRU">
+    </defaultcache>
     <cache name="cache"
            maxBytesLocalDisk="5g" maxBytesLocalHeap="20m" maxBytesLocalOffHeap="200m"
            maxEntriesLocalHeap="200" maxEntriesLocalDisk="300"

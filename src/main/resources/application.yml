@@ -60,8 +60,8 @@ spring:
     type: redis
     redis:
       use-key-prefix: true
-      key-prefix:
-      time-to-live: 60000
+      key-prefix: sms_
+      time-to-live: 60s
       cache-null-values: false
 #  #    type: ehcache
 #    ehcache:

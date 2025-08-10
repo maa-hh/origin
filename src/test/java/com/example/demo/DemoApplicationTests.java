@@ -112,7 +112,9 @@ class DemoApplicationTests {
         SearchSourceBuilder sbuilder=new SearchSourceBuilder();
         sbuilder.query(QueryBuilders.termQuery("title","Java"));
         sr.source(sbuilder);
+
         SearchResponse srp=rh.search(sr,RequestOptions.DEFAULT);
+
         SearchHits sh=srp.getHits();
         for(SearchHit hit:sh){
             String ss=hit.getSourceAsString();
